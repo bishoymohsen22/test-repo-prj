@@ -1,4 +1,10 @@
-import { useState } from 'react';
+import { useState, type CSSProperties } from 'react';
+interface sandwich{
+  breads :string,
+  suaces:string,
+  mains:string,
+sandwich:any
+}
 
 
 const breads = ['brown bread', 'white bread', 'milk bread', 'sugar-free bread'];
@@ -6,7 +12,7 @@ const sauces = ['mayo', 'ketchup', 'mustard', 'hot sauce', 'ranch', 'sriracha', 
 const mains = ['beef', 'chicken', 'mutton'];
 
 
-function getRandom(arr) {
+function getRandom(arr:string[]) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
@@ -33,7 +39,7 @@ function App() {
    // setSandwich(sandwich.concat({bread:getRandom(breads),sauce:getRandom(sauces),main: getRandom(mains)}))
 //  }
     
-  const containerStyle = {
+  const containerStyle:CSSProperties = {
     width: '100%',
     fontFamily: 'Arial, sans-serif',
     backgroundColor: '#f4f4f4',
@@ -57,6 +63,7 @@ function App() {
         
         <p id="text">sandwiches. </p>
         <div id="sandwich-list"></div>
+        <button>create sandwich</button>
         <p>Bread: {sandwich[0].bread}</p>
         <p>Sauce: {sandwich[0].sauce}</p>
         <p>Main Ingredient: {sandwich[0].main}</p>
